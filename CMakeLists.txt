@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.9)
 project(VulkanMemoryAllocator)
 
 # find_package(Vulkan)
-add_subdirectory(Vulkan-Headers)
+# add_subdirectory(Vulkan-Headers)
 
 # VulkanMemoryAllocator contains an sample application which is not built by default
 option(VMA_BUILD_SAMPLE "Build VulkanMemoryAllocator sample application" OFF)

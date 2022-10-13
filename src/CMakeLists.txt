@@ -4,6 +4,9 @@ set(VMA_LIBRARY_SOURCE_FILES
     "${PROJECT_SOURCE_DIR}/include/vk_mem_alloc.h"
 )
 
+include (cmake/CPM.cmake)
+CPMAddPackage("gh:KhronosGroup/Vulkan-Headers#main")
+
 # Visual Studio only debugger symbols
 if(WIN32 AND ${CMAKE_GENERATOR} MATCHES "Visual Studio.*")
     set(VMA_LIBRARY_SOURCE_FILES ${VMA_LIBRARY_SOURCE_FILES} vk_mem_alloc.natvis)
