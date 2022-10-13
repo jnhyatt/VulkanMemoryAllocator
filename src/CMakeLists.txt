@@ -14,6 +14,7 @@ set(CMAKE_RELWITHDEBINFO_POSTFIX rd)
 set(CMAKE_MINSIZEREL_POSTFIX s)
 
 add_library(VulkanMemoryAllocator ${VMA_LIBRARY_SOURCE_FILES})
+add_library(VulkanMemoryAllocator::VulkanMemoryAllocator ALIAS VulkanMemoryAllocator)
 
 set_target_properties(
     VulkanMemoryAllocator PROPERTIES
@@ -28,10 +29,7 @@ target_include_directories(VulkanMemoryAllocator PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
 )
 
-# Only link to Vulkan if static linking is used
-if(${VMA_STATIC_VULKAN_FUNCTIONS})
-    target_link_libraries(VulkanMemoryAllocator PUBLIC Vulkan::Vulkan)
-endif()
+target_link_libraries(VulkanMemoryAllocator PUBLIC Vulkan::Headers)
 
 target_compile_definitions(
     VulkanMemoryAllocator
@@ -98,7 +96,7 @@ if(VMA_BUILD_SAMPLE)
             PRIVATE
             
             VulkanMemoryAllocator
-            Vulkan::Vulkan
+            Vulkan::Headers
         )
     else()
         message(STATUS "VmaSample application is not supported to Linux")
