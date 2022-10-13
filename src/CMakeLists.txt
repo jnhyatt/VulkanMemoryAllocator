@@ -16,7 +16,7 @@ set(CMAKE_DEBUG_POSTFIX d)
 set(CMAKE_RELWITHDEBINFO_POSTFIX rd)
 set(CMAKE_MINSIZEREL_POSTFIX s)
 
-add_library(VulkanMemoryAllocator ${VMA_LIBRARY_SOURCE_FILES})
+add_library(VulkanMemoryAllocator STATIC ${VMA_LIBRARY_SOURCE_FILES})
 add_library(VulkanMemoryAllocator::VulkanMemoryAllocator ALIAS VulkanMemoryAllocator)
 
 set_target_properties(
