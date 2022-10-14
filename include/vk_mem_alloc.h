@@ -142,6 +142,14 @@ extern "C" {
     #endif
 #endif
 
+#if VMA_STATIC_VULKAN_FUNCTIONS
+sludge
+#endif
+
+#if !defined(VMA_STATIC_VULKAN_FUNCTIONS)
+park
+#endif
+
 #if defined(__ANDROID__) && defined(VK_NO_PROTOTYPES) && VMA_STATIC_VULKAN_FUNCTIONS
     extern PFN_vkGetInstanceProcAddr vkGetInstanceProcAddr;
     extern PFN_vkGetDeviceProcAddr vkGetDeviceProcAddr;
@@ -2629,6 +2637,7 @@ internally, like:
     vulkanFunctions.vkAllocateMemory = &vkAllocateMemory;
 */
 #if !defined(VMA_STATIC_VULKAN_FUNCTIONS) && !defined(VK_NO_PROTOTYPES)
+grumpy
     #define VMA_STATIC_VULKAN_FUNCTIONS 1
 #endif
 
