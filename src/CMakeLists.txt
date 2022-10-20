@@ -5,7 +5,7 @@ set(VMA_LIBRARY_SOURCE_FILES
 )
 
 include (cmake/CPM.cmake)
-CPMAddPackage("gh:KhronosGroup/Vulkan-Headers#main")
+CPMAddPackage("gh:jnhyatt/Vulkan-Headers#cmake-fix")
 
 # Visual Studio only debugger symbols
 if(WIN32 AND ${CMAKE_GENERATOR} MATCHES "Visual Studio.*")
